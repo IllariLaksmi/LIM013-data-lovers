@@ -1,38 +1,61 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <title>Data Lovers</title>
-        <link rel="stylesheet" href="style.css" />
-        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>Data Lovers</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
 
-    <body>
-        <div id="general">
-            <header >
-                <a href="#"><img src="images/boton-menu.png" width="100px" height="100px" alt=""></a>
-                <img id="headerImage" src="images/cabecera-desktop.png" width="800px" alt="">
-                <h1 class="title">Pokedex 2.0</h1>
-            </header>
-            <nav>
-                <input type="search" name="busqueda" class="search" placeholder="Búsqueda">
-                <div class="select">
-                    <select name="Ordenar" class="order-title">
-                    <option value="value1" selected disabled>Ordenar</option> 
-                    <option value="value2">Más fuerte</option> 
-                    <option value="value3">A-Z</option>
-                    <option value="value4">Z-A</option>
-                    <option value="value5">1-256</option>
-                    <option value="value6">256-1</option>
-                    </select>
-                </div>
-                <div class="random">
-                    <img src="images/boton-aleatorio.png">
-                </div>
-            </nav>
-            <div id="container" class="container"></div>
+<body>
+    <div id="general">
+        <header>
+            <img id="headerImage" src="images/cabecera-desktop.png" alt="">
+            <a href="#"><img src="images/boton-menu.png" width="100px" height="100px" alt=""></a>
+            <h1 class="title">Pokedex 2.0</h1>
+        </header>
+        <nav>
+            <input type="search" name="busqueda" class="search" placeholder="Búsqueda">
+            <div class="select">
+                <select name="Ordenar" class="order-title">
+                <option value="value1" selected disabled>Ordenar</option> 
+                <option value="value2">Más fuerte</option> 
+                <option value="value3">A-Z</option>
+                <option value="value4">Z-A</option>
+                <option value="value5">1-256</option>
+                <option value="value6">256-1</option>
+                </select>
             </div>
-        <script src="main.js" type="module"></script>
- </body>
+            <div class="random">
+                <img src="images/boton-aleatorio.png">
+            </div>
+        </nav>
+        <div class="menu-sidebar">
+            <button class="type" data-type="steel">Acero</button>
+            <button class="type" data-type="flying">Volador</button>
+            <button class="type" data-type="water">Agua</button>
+            <button class="type" data-type="ice">Hielo</button>
+            <button class="type" data-type="grass">Planta</button>
+            <button class="type" data-type="bug">Bicho</button>
+            <button class="type" data-type="normal">Normal</button>
+            <button class="type" data-type="rock">Roca</button>
+            <button class="type" data-type="ground">Tierra</button>
+            <button class="type" data-type="fire">Fuego</button>
+            <button class="type" data-type="fighting">Lucha</button>
+            <button class="type" data-type="fairy">Hada</button>
+            <button class="type" data-type="psychic">Psiquico</button>
+            <button class="type" data-type="poison">Venenoso</button>
+            <button class="type" data-type="dragon">Dragón</button>
+            <button class="type" data-type="ghost">Fantasma</button>
+            <button class="type" data-type="dark">Siniestro</button>
+        </div>
+        <div id="galery">
+
+        </div>
+        <div id="container" class="container"></div>
+    </div>
+    <script src="main.js" type="module"></script>
+</body>
+
 </html>

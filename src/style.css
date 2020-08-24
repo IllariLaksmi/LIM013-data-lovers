@@ -2,6 +2,7 @@ body {
     background-image: url("images/fondo-bienvenida.jpg");
     background-position: center;
     background-size: cover;
+    margin: 0px;
 }
 
 
@@ -95,6 +96,12 @@ select {
     text-shadow: #fcc049 3px solid;
 }
 
+#headerImage {
+    width: 100%;
+}
+
+header {
+    /*width: 75%;
 .container {
 display: flex;
 flex-wrap: wrap;
@@ -112,18 +119,20 @@ margin: auto;
     padding: 10px;
     text-align: center;
 }
+
 h2 {
-    display:flex;
+    display: flex;
     color: #F6F2DF;
     font-family: 'Anton', sans-serif;
     justify-content: center;
-    
 }
+
 .card {
     background-color: #003049;
     border-radius: 10px;
     margin: 10px;
 }
+
 
 /*header {
     width: 75%;
