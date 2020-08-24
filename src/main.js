@@ -22,8 +22,8 @@ while (i <= 256) {
 //Filtrando por tipo
 const typeButton = document.getElementsByClassName("type");
 
-for (var i = 0; i < typeButton.length; i++) {
-    typeButton[i].addEventListener("click", function(event) {
+for (var j = 0; j < typeButton.length; j++) {
+    typeButton[j].addEventListener("click", function(event) {
         let dataType = event.target.getAttribute("data-type");
         typeShow(dataType);
     })
