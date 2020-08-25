@@ -2,6 +2,22 @@ import { example } from './data.js';
 // import data from './data/lol/lol.js';
 import data from './data/pokemon/pokemon.js';
 
+/* let names = data.pokemon.filter(nombre =>{
+    return nombre.name;
+}) */
+
+ let info = data.pokemon.slice();
+ console.log(info);
+ info.indexOf(info.name);
+info.forEach(function(nombre){
+    return console.log( nombre.name);
+})
+info.map(function(numero){
+    console.log(numero.num)
+})
+info.map(function(fotos){
+    console.log(fotos.img)
+})
 //Insertando un nuevo nodo
 let i = 0;
 while (i <= 256) {
