@@ -223,12 +223,12 @@ closeStartModal.addEventListener("click", function() {
     document.getElementById("startModal").style.display = "none";
 })
 
-//Abrir cerrar modal de ayuda
-helpButton.addEventListener("click", function() {
-    document.getElementById("modalHelp").style.display = "block";
-})
-document.getElementById("closeHelpModal").addEventListener("click", function() {
-    document.getElementById("modalHelp").style.display = "none";
-})
+// //Abrir cerrar modal de ayuda
+// helpButton.addEventListener("click", function() {
+//     document.getElementById("modalHelp").style.display = "block";
+// })
+// document.getElementById("closeHelpModal").addEventListener("click", function() {
+//     document.getElementById("modalHelp").style.display = "none";
+// })
 
 showCards(eachPokemon);
