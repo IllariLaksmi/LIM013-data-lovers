@@ -675,57 +675,6 @@ footer {
     height: 75px;
 }
 
-
-/* Modal de inicio */
-
-.startModal {
-    display: flex;
-    position: fixed;
-}
-
-.startModalContent {
-    background-image: url("images/fondo-bienvenida.jpg");
-    background-size: 320px 450px;
-    border-radius: 10px;
-    width: 320px;
-    height: 450px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-}
-
-.startModalContent:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.startModalContent>p {
-    position: relative;
-    font-family: 'Anton';
-    font-size: 50px;
-    color: white;
-    text-align: center;
-}
-
-#closeStartModal {
-    width: 50px;
-    height: 50px;
-    padding: 10px;
-    position: relative;
-    margin-left: 0;
-}
-
-#closeStartModal:hover {
-    cursor: pointer;
-}
-
-
 /*Modal de Ayuda*/
 
 .modalHelp {

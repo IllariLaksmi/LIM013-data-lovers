@@ -1,4 +1,5 @@
 import { dataUtilities } from './data.js';
+import data from "./data/pokemon/pokemon.js";
 
 //Declaracion de variables globales
 const typeButton = document.getElementsByClassName("type");
@@ -14,35 +15,33 @@ const orderStrongest = document.getElementById("stronger");
 const orderWeakest = document.getElementById("weakest");
 const versusButton = document.getElementById("boton-versus");
 const randomizePokemon = document.getElementById("random");
-const eachPokemon = dataUtilities.listAll();
+const eachPokemon = data.pokemon;
 const containerGalery = document.getElementById("container-galery");
 const pokeCardContainer = document.getElementById("pokeCardContainer");
-const closeStartModal = document.getElementById("closeStartModal");
 const helpButton = document.getElementById("helpButton");
 
 //Mostrar las cartas en la galería
-function showCards(dataArr) {
+const showCards = (dataArr) => {
     containerGalery.innerHTML = "";
-    for (let k = 0; k < dataArr.length; k++) {
+    dataArr.forEach((element) => {
         let txtClass = "";
-        let eachTypePoke = dataArr[k].type;
+        let eachTypePoke = element.type; 
         const templateCards = `
-            <div class="card ${txtClass}" id="${dataArr[k].name}">
-            <img src="${dataArr[k].img}" class="imageContainer">
-            <p class="">${dataArr[k].name}</p>
+            <div class="card ${txtClass}" id="${element.name}">
+            <img src="${element.img}" class="imageContainer">
+            <p class="">${element.name}</p>
             </div>
             `;
-
+            
         for (let l = 0; l < dataArr.length; l++) {
             txtClass += eachTypePoke[l] + " ";
         }
-        containerGalery.innerHTML += templateCards;
-    }
+        containerGalery.innerHTML += templateCards});
     showPokeCards(dataArr);
 }
 
 //Filtrar por showPokeCards(pokemonDataByType);tipo
-function filterPokemonByType(pokemonType) {
+const filterPokemonByType = (pokemonType) => {
     let pokemonDataByType = dataUtilities.filterByType(pokemonType);
     const templateCards = `
     <div class="sticker">
@@ -58,7 +57,7 @@ function filterPokemonByType(pokemonType) {
     counterType.innerHTML = templateCards;
 
     const buttonRemove = document.getElementById("closed-sticker");
-    buttonRemove.addEventListener("click", function() {
+    buttonRemove.addEventListener("click", () => {
         counterType.innerHTML = "";
         showCards(eachPokemon);
     })
@@ -67,26 +66,26 @@ function filterPokemonByType(pokemonType) {
 }
 
 //Mostrar el menú hamburguesa
-buttonMenuTypes.addEventListener("click", function() {
+buttonMenuTypes.addEventListener("click", () => {
     document.getElementById("modal-menu").classList.add("display");
     document.getElementById("modal-menu").classList.remove("hide");
 });
 
 //Cerrar menu hamburguesa
-buttonClosed.addEventListener("click", function() {
+buttonClosed.addEventListener("click", () => {
     document.getElementById("modal-menu").classList.add("hide");
     document.getElementById("modal-menu").classList.remove("display");
 })
 
 //Buscador
-inputSearch.addEventListener("keyup", function(e) {
+inputSearch.addEventListener("keyup", (e) => {
     const pokemonDataByName = dataUtilities.filterByName(e.target.value);
     showCards(pokemonDataByName);
 })
 
 //Capturar el tipo de pokemon
 for (let j = 0; j < typeButton.length; j++) {
-    typeButton[j].addEventListener("click", function(event) {
+    typeButton[j].addEventListener("click", (event) => {
         let pokemonType = event.target.getAttribute("data-type");
         filterPokemonByType(pokemonType)
     })
@@ -129,7 +128,7 @@ orderWeakest.addEventListener("click", function() {
 })
 
 //Random Pokemon
-randomizePokemon.addEventListener("click", function() {
+randomizePokemon.addEventListener("click", () => {
     const selectPokemonRandomize = dataUtilities.randomPokemon(eachPokemon);
     showCards(selectPokemonRandomize);
 })
@@ -180,14 +179,6 @@ function showPokeCards(dataArr) {
     for (let k = 0; k < dataArr.length; k++) {
         document.getElementById(dataArr[k].name).addEventListener("click", function() {
             document.getElementById("pokeCardContainer").style.display = "block";
-            /*  let templatePrevEvolution = '';
-             // verificar si existe la propiedad prev-evolution
-             dataArr[k].evolution['prev-evolution'].forEach((elemento) => {
-                 console.log(elemento.name)
-                 templatePrevEvolution += `<p>${elemento.name}</p>`
-                  // verificar si existe la propiedad prev-evolution
-                    // Si tiene le agregamos el template */
-            //})
             pokeCardContainer.innerHTML = `
             <div class="outside-modal">
             <div class="pokeCard" id="pokeCard">
@@ -218,17 +209,4 @@ function showPokeCards(dataArr) {
     }
 }
 
-//Cerrando modal de inicio
-closeStartModal.addEventListener("click", function() {
-    document.getElementById("startModal").style.display = "none";
-})
-
-// //Abrir cerrar modal de ayuda
-// helpButton.addEventListener("click", function() {
-//     document.getElementById("modalHelp").style.display = "block";
-// })
-// document.getElementById("closeHelpModal").addEventListener("click", function() {
-//     document.getElementById("modalHelp").style.display = "none";
-// })
-
-showCards(eachPokemon);
+showCards(data.pokemon);
