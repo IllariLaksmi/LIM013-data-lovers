@@ -14,8 +14,8 @@ export const dataUtilities = {
     );
     return pokemonNameFiltered;
   },
-  orderAlphabeticallyAz: () => {
-    return data.pokemon.sort((a, b) => {
+  orderAlphabeticallyAz: (info) => {
+    return info.sort((a, b) => {
       if (a.name > b.name) {
         return 1;
       }
@@ -25,8 +25,8 @@ export const dataUtilities = {
       return 0;
     });
   },
-  orderAlphabeticallyZa: () => {
-    return data.pokemon.sort((a, b) => {
+  orderAlphabeticallyZa: (info) => {
+    return info.sort((a, b) => {
       if (a.name > b.name) {
         return -1;
       }
@@ -36,8 +36,8 @@ export const dataUtilities = {
       return 0;
     });
   },
-  orderNumericallyDirect: () => {
-    return data.pokemon.sort((a, b) => {
+  orderNumericallyDirect: (info) => {
+    return info.sort((a, b) => {
       if (a.num > b.num) {
         return 1;
       }
@@ -47,8 +47,8 @@ export const dataUtilities = {
       return 0;
     });
   },
-  orderNumericallyReverse: () => {
-    return data.pokemon.sort((a, b) => {
+  orderNumericallyReverse: (info) => {
+    return info.sort((a, b) => {
       if (a.num > b.num) {
         return -1;
       }
@@ -58,21 +58,21 @@ export const dataUtilities = {
       return 0;
     });
   },
-  orderStrong: () => {
-    return data.pokemon.sort((a, b) => {
+  orderStrong: (info) => {
+    return info.sort((a, b) => {
       return b.stats["max-cp"] - a.stats["max-cp"];
     });
   },
-  orderWeak: () => {
-    return data.pokemon.sort((a, b) => {
+  orderWeak: (info) => {
+    return info.sort((a, b) => {
       return a.stats["max-cp"] - b.stats["max-cp"];
     });
   },
-  comparePokemon: (myPlayer, otherPlayer) => {
-    const fullArrayNamePlayer1 = data.pokemon.filter((element) =>
+  comparePokemon: (myPlayer, otherPlayer, info) => {
+    const fullArrayNamePlayer1 = info.filter((element) =>
       element.name.includes(myPlayer)
     );
-    const fullArrayNamePlayer2 = data.pokemon.filter((element) =>
+    const fullArrayNamePlayer2 = info.filter((element) =>
       element.name.includes(otherPlayer)
     );
     let typePlayer1 = [];

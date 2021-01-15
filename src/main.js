@@ -15,7 +15,6 @@ const orderStrongest = document.getElementById("stronger");
 const orderWeakest = document.getElementById("weakest");
 const versusButton = document.getElementById("boton-versus");
 const randomizePokemon = document.getElementById("random");
-const eachPokemon = data.pokemon;
 const containerGalery = document.getElementById("container-galery");
 const pokeCardContainer = document.getElementById("pokeCardContainer");
 const helpButton = document.getElementById("helpButton");
@@ -24,18 +23,12 @@ const helpButton = document.getElementById("helpButton");
 const showCards = (dataArr) => {
     containerGalery.innerHTML = "";
     dataArr.forEach((element) => {
-        let txtClass = "";
-        let eachTypePoke = element.type; 
         const templateCards = `
-            <div class="card ${txtClass}" id="${element.name}">
+            <div class="card ${element.type}" id="${element.name}">
             <img src="${element.img}" class="imageContainer">
             <p class="">${element.name}</p>
             </div>
             `;
-            
-        for (let l = 0; l < dataArr.length; l++) {
-            txtClass += eachTypePoke[l] + " ";
-        }
         containerGalery.innerHTML += templateCards});
     showPokeCards(dataArr);
 }
@@ -50,16 +43,22 @@ const filterPokemonByType = (pokemonType) => {
     <img src="images/closed-new.png" id="closed-sticker">
     </div>
     `
-    document.getElementById("container-galery").innerHTML = "";
+    let gallery = document.getElementById("container-galery")
+    gallery.childNodes.classList.add("hide");
     document.getElementById("modal-menu").classList.add("hide");
     document.getElementById("modal-menu").classList.remove("display");
-
-    counterType.innerHTML = templateCards;
+    let divType = gallery.createElement('div');
+    divType.classList.remove("hide");
+    divType.classList.add("display");
+    divType.innerHTML = templateCards;
 
     const buttonRemove = document.getElementById("closed-sticker");
     buttonRemove.addEventListener("click", () => {
+        let gallery = document.getElementById("container-galery")
         counterType.innerHTML = "";
-        showCards(eachPokemon);
+        gallery.removeChild(divType);
+        gallery.childNodes.classList.remove("hide");
+        gallery.childNodes.classList.add("display");
     })
 
     showCards(pokemonDataByType);
@@ -93,43 +92,42 @@ for (let j = 0; j < typeButton.length; j++) {
 
 //Ordenar alfabeticamente
 orderAz.addEventListener("click", function() {
-    const orderAz = dataUtilities.orderAlphabeticallyAz();
+    const orderAz = dataUtilities.orderAlphabeticallyAz(data.pokemon);
     showCards(orderAz);
 })
 
 orderZa.addEventListener("click", function() {
-    const orderZa = dataUtilities.orderAlphabeticallyZa();
+    const orderZa = dataUtilities.orderAlphabeticallyZa(data.pokemon);
     showCards(orderZa);
 })
 
 //Ordenar numericamente
 orderDirect.addEventListener("click", function() {
-    const orderDirect = dataUtilities.orderNumericallyDirect();
+    const orderDirect = dataUtilities.orderNumericallyDirect(data.pokemon);
     showCards(orderDirect);
 
 })
 
 orderReverse.addEventListener("click", function() {
-    const orderReverse = dataUtilities.orderNumericallyReverse();
+    const orderReverse = dataUtilities.orderNumericallyReverse(data.pokemon);
     showCards(orderReverse);
-
 })
 
 //Ordenar por fuerza
 orderStrongest.addEventListener("click", function() {
-    const orderStrongest = dataUtilities.orderStrong();
+    const orderStrongest = dataUtilities.orderStrong(data.pokemon);
     showCards(orderStrongest);
 
 })
 orderWeakest.addEventListener("click", function() {
-    const orderWeakest = dataUtilities.orderWeak();
+    const orderWeakest = dataUtilities.orderWeak(data.pokemon);
     showCards(orderWeakest);
 
 })
 
 //Random Pokemon
 randomizePokemon.addEventListener("click", () => {
-    const selectPokemonRandomize = dataUtilities.randomPokemon(eachPokemon);
+    const selectPokemonRandomize = dataUtilities.randomPokemon(data.pokemon);
     showCards(selectPokemonRandomize);
 })
 

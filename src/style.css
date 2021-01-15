@@ -23,7 +23,7 @@ h4 {
     font-family: 'Anton';
 }
 
-p {
+p, a {
     font-family: 'Open sans';
 }
 
@@ -104,6 +104,7 @@ nav * {
     padding: 15px;
     border: none;
     font-size: 1.5em;
+    font-family: 'Open Sans';
     margin: 0px;
 }
 
